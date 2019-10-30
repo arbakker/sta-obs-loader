@@ -30,7 +30,7 @@ Options:
 
 For example:
 
-```bash
+```
 python3 script.py  sub mqtt.sensemakersams.org 9998 pipeline/mijnomgeving/# -u public -p public1234
 ```
 
