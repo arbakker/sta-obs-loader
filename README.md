@@ -28,10 +28,10 @@ Options:
   --help                    Show this message and exit.
 ```
 
-For example:
+For example (credentials are obfuscated):
 
 ```
-python3 script.py  sub mqtt.sensemakersams.org 9998 pipeline/mijnomgeving/# -u public -p public1234
+python3 script.py  sub mqtt.sensemakersams.org 9998 pipeline/mijnomgeving/# -u ***** -p *****
 ```
 
 ## Debug configuration in VS Code
