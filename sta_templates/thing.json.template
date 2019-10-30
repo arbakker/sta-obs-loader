@@ -1,0 +1,21 @@
+{
+    "name": "{{thing.name}}",
+    "description": "{{thing.description}}",
+    "properties": {
+        {{#thing.properties}}
+        "{{key}}": "{{value}}"{{^last}}, {{/last}}
+        {{/thing.properties}}
+    },
+    "Locations": [
+        {
+            "name": "{{location.name}}",
+            "description": "{{location.description}}",
+            "encodingType": "application/vnd.geo+json",
+            "location": {
+                "type": "Point",
+                "coordinates": [{{location.x}},
+                {{location.y}}]
+            }
+        }
+    ]
+}

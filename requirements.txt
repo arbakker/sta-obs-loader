@@ -1,0 +1,4 @@
+paho-mqtt==1.4.
+Click===7.0
+requests==2.22.0
+chevron==0.13.1

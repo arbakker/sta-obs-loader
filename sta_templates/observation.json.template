@@ -1,0 +1,7 @@
+{
+    "phenomenonTime": "{{timestamp}}",
+    "result": {{value}},
+    "Datastream": {
+        "@iot.id": "{{datastream_id}}"
+    }
+}

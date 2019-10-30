@@ -1,0 +1,13 @@
+{
+    "name": "{{name}}",
+    "unitOfMeasurement": {
+        "symbol": "{{uom.symbol}}",
+        "name": "{{uom.name}}",
+        "definition": "{{uom.definition}}"
+    },
+  "observationType":"http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
+  "description": "{{description}}",
+  "Thing": {"@iot.id": "{{thing_id}}"},
+  "ObservedProperty": {"@iot.id": "{{observed_property_id}}"},
+  "Sensor": {"@iot.id": "{{sensor_id}}"}
+}
