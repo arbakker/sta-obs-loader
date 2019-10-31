@@ -18,13 +18,13 @@ class STAError(Exception):
    """SensorthingsAPI Error handling"""
    pass
 
-STA_BASE_URL = ""
+STA_STA_BASE_URL = ""
 STA_MQTT_PORT = -1
 
 def get_sta_entity(path):
     try:
         print(f"GET {path}")
-        url = f"{BASE_URL}/{path}"
+        url = f"{STA_BASE_URL}/{path}"
         response = requests.get(url, headers={"Accept":"application/json"})
         if response.status_code != 200:
             status_code = response.status_code
@@ -103,7 +103,7 @@ def get_observation_json(obs_json, datastream_id, property_of_interest):
 
 def create_sta_entity(path, payload):
     print(f"POST {path}")
-    url = f"{BASE_URL}/{path}"
+    url = f"{STA_BASE_URL}/{path}"
     try:
         response = requests.post(url, data=payload, headers={"Accept": "application/json", "Content-Type": "application/json"})
         if response.status_code != 201:
@@ -213,7 +213,7 @@ class ClientWrapper(mqtt.Client):
             create_sta_observation(payload_json, client.devices[dev_id], client.property_of_interest)
 
     def create_sta_observation_mqtt(payload_json, datastream_id):
-        parsed_url = urlparse(STA_BASE_URL)
+        parsed_url = urlparse(STA_STA_BASE_URL)
         host = parsed_url.netloc.split(":")[0]
         client1 = mqtt.Client("control1")
         # client1.on_publish = on_publish
@@ -230,7 +230,7 @@ class ClientWrapper(mqtt.Client):
 @click.option('-s', '--sta_mqtt_port')
 def convert_mqtt2sta_command(sta_base_url, mqtt_host, mqtt_port, mqtt_topic, mqtt_user, mqtt_password, sta_mqtt_port):
     print(sta_base_url, mqtt_host, mqtt_port, mqtt_topic, mqtt_user, mqtt_password)
-    STA_BASE_URL = sta_base_url
+    STA_STA_BASE_URL = sta_base_url
     STA_MQTT_PORT = sta_mqtt_port
     property_of_interest = "waterTemperature"
     client = ClientWrapper(mqtt_topic, property_of_interest)
